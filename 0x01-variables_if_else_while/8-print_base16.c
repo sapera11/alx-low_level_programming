@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
  * main - Entry point
- *Description: 'print numbers of base 10'
+ *Description: 'print numbers of base 16'
  *Return: Always 0
  */
 int main(void)
@@ -13,7 +13,7 @@ int main(void)
 	{
 		putchar(n);
 	}
-	for (m = 97; m <= 102; n++)
+	for (m = 97; m <= 102; m++)
 	{
 		putchar(m);
 	}
