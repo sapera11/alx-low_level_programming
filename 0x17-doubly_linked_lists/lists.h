@@ -1,48 +1,33 @@
-#ifndef LIST_H
-#define LIST_H
-
+#ifndef LISTS
+#define LISTS
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 
-/* Definition of a node in the list */
-typedef struct node {
-    int data;
-    struct node *next;
-} node_t;
+/**
+ * struct dlistint_s - doubly linked list
+ * @n: integer
+ * @prev: points to the previous node
+ * @next: points to the next node
+ *
+ * Description: doubly linked list node structure
+ * for Holberton project
+ */
+typedef struct dlistint_s
+{
+    int n;
+    struct dlistint_s *prev;
+    struct dlistint_s *next;
+} dlistint_t;
 
-/* Definition of the list */
-typedef struct list {
-    node_t *head;
-    size_t size;
-} list_t;
+size_t print_dlistint(const dlistint_t *h);
+size_t dlistint_len(const dlistint_t *h);
+dlistint_t *add_dnodeint(dlistint_t **head, const int n);
+dlistint_t *add_dnodeint_end(dlistint_t **head, const int n);
+void free_dlistint(dlistint_t *head);
+dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index);
+int sum_dlistint(dlistint_t *head);
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n);
+int delete_dnodeint_at_index(dlistint_t **head, unsigned int index);
 
-/* Function to initialize an empty list */
-void list_init(list_t *list);
-
-/* Function to add a new node to the front of the list */
-void list_push_front(list_t *list, int data);
-
-/* Function to remove the first node from the list */
-void list_pop_front(list_t *list);
-
-/* Function to add a new node to the back of the list */
-void list_push_back(list_t *list, int data);
-
-/* Function to remove the last node from the list */
-void list_pop_back(list_t *list);
-
-/* Function to insert a new node at a given position in the list */
-void list_insert(list_t *list, int data, size_t index);
-
-/* Function to remove a node at a given position from the list */
-void list_remove(list_t *list, size_t index);
-
-/* Function to get the data stored in a node at a given position in the list */
-int list_get(list_t *list, size_t index);
-
-/* Function to print the contents of the list */
-void list_print(list_t *list);
-
-/* Function to get the size of the list */
-size_t list_size(list_t *list);
-
-#endif /* LIST_H */
+#endif
